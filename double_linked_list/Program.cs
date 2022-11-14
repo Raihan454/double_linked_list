@@ -18,7 +18,45 @@ namespace double_linked_list
         public Node next;
         //point to the precceeding node
         public Node prev;
+    }
+    class DoubleLinkedList
+    {
+        Node START;
+
+        //constructor
+
+        public DoubleLinkedList()
         {
+            START = null;
+        }
+        public void addNode()
+        {
+            int nim;
+            string nm;
+            Console.WriteLine("\nEnter the rokk number of the student: ");
+            nim = Convert.ToInt32(System.Console.ReadLine());
+            Console.WriteLine("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.noMhs = nim;
+            newNode.name = nm;
+
+            //chechk if the list empty
+            if (START == null || nim <= START.noMhs)
+            {
+                if ((START != null) && (nim == START.noMhs))
+                {
+                    Console.WriteLine("\nDuplicate nuber not allowed");
+                    return;
+                }
+                newNode.next = START;
+                if (START != null)
+                    START.prev = newNode;
+                newNode.prev = null;
+                START = newNode;
+                return;
+            }
         }
     }
 }
+
